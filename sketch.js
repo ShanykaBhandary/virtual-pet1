@@ -8,8 +8,10 @@ function preload()
 
 function setup() {
   createCanvas(500, 500);
-   dog=createSprite(30,50)
+  database=firebase.database();
+  dog=createSprite(50,380)
   dog.addImage(dog1)
+  dog.scale=0.2
   foodStock=database.ref('Food');
   foodStock.on("value",readStock);
 }
@@ -23,9 +25,9 @@ if(keyDown(UP_ARROW)){
 }
 
   drawSprites();
-  textSize(30)
+  textSize(15)
   fill("white")
-  text("Note:PressUP_ARROW Ket To Feed Drago Milk!")
+  text("Note:PressUP_ARROW Key To Feed Drago Milk!",50,50)
   
 }
 function readStock(data){
